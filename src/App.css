@@ -1,9 +1,12 @@
 .App {
-	font-family: 'Roboto Mono', monospace;
 	padding: 20px;
 	max-width: 900px;
+	width: 100%;
 	margin: 0 auto;
-	margin-top: 30px;
+}
+
+body {
+	margin: 0;
 }
 
 html {
@@ -12,11 +15,12 @@ html {
 	--text-dull: #7f8fa6;
 	--error-red: #e84118;
 	--blue: #0652dd;
-	--green: hsl(118, 41%, 49%);
+	--green: hsl(118, 41%, 47%);
 	--orange: hsl(31, 78%, 53%);
 	--red: hsl(359, 80%, 50%);
 }
 
+body,
 input,
 button,
 textarea {
@@ -54,6 +58,7 @@ textarea {
 	height: 150px;
 	resize: vertical;
 	min-height: 100px;
+	line-height: 1.5;
 }
 
 .has-error button {
@@ -94,11 +99,10 @@ textarea:focus {
 
 h1 {
 	font-size: 30px;
-	text-align: center;
 	margin: 0;
 	padding: 0;
-	margin-bottom: 40px;
 	color: var(--text-dull);
+	font-weight: normal;
 }
 
 .device {
@@ -298,4 +302,69 @@ button {
 
 .web-vitals-card.error {
 	padding: 0.5em 1.5em !important;
+}
+
+.top-container {
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.links {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.links a {
+	text-decoration: none;
+	color: var(--text);
+	font-size: 20px;
+	display: block;
+	display: flex;
+	align-items: center;
+}
+
+.links a:hover {
+	transform: scale(1.2);
+	transition: transform 400ms ease;
+}
+
+.links svg {
+	--icon: var(--text-dull);
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+#root {
+	padding-top: 30px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	min-height: 100vh;
+}
+
+main {
+	margin-bottom: 50px;
+}
+
+footer {
+	padding: 20px;
+	margin-top: auto;
+	align-self: flex-end;
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+	color: var(--text-dull);
+}
+
+footer a {
+	color: inherit;
+	text-underline-offset: 3px;
 }

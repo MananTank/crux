@@ -22,6 +22,7 @@ export function Input({ onSubmit, value }: InputProps) {
 	return (
 		<div className='input-container'>
 			<input
+				aria-label='Enter URL'
 				onChange={event => {
 					setInput(event.target.value);
 				}}
@@ -32,7 +33,7 @@ export function Input({ onSubmit, value }: InputProps) {
 				}}
 			/>
 			<button type='button' onClick={() => onSubmit(input)}>
-				FETCH CRUX
+				GET CrUX
 			</button>
 		</div>
 	);

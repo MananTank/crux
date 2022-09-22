@@ -19,7 +19,7 @@ export function TextAreaContainer({ value, onClick }: TextAreaProps) {
 					setInput(e.target.value);
 				}}></textarea>
 			<button type='button' onClick={() => onClick(input)}>
-				FETCH CRUX
+				GET CrUX
 			</button>
 		</div>
 	);
