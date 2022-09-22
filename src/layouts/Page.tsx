@@ -1,11 +1,14 @@
 import { Card } from '../components/Card';
-import { useState, Suspense } from 'react';
+import { useState, Suspense, useContext } from 'react';
 import { Loader } from '../components/Loader';
+import { ModeCtx } from '../context';
+import { Mode } from '../types';
 
-function getInitialURL() {
+function getInitialURL(mode: Mode) {
 	const href = new URL(window.location.href);
 	const testURL = href.searchParams.get('url');
-	return testURL || 'https://www.google.com';
+	const defaultURL = mode === 'url' ? 'https://web.dev/vitals/' : 'https://web.dev';
+	return testURL || defaultURL;
 }
 
 type InputProps = {
@@ -36,7 +39,8 @@ export function Input({ onSubmit, value }: InputProps) {
 }
 
 export function Page() {
-	const [url, setURL] = useState(getInitialURL);
+	const [mode] = useContext(ModeCtx);
+	const [url, setURL] = useState(() => getInitialURL(mode));
 
 	return (
 		<>

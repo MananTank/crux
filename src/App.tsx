@@ -15,7 +15,12 @@ export default function App() {
 		<ModeCtx.Provider value={[mode, setMode]}>
 			<div className='App container'>
 				<ModeSelection />
-				<Suspense fallback={<Loader />}>{mode === 'list' ? <List /> : <Page />}</Suspense>
+
+				<Suspense fallback={<Loader />}>
+					{mode === 'list' && <List />}
+					{mode === 'url' && <Page key='url' />}
+					{mode === 'origin' && <Page key='origin' />}
+				</Suspense>
 			</div>
 		</ModeCtx.Provider>
 	);

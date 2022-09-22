@@ -31,7 +31,7 @@ export function CompactList({ urls }: { urls: string[] }) {
 			{urls.map((url: string, i: number) => {
 				return (
 					<Suspense fallback={<Loader />} key={url}>
-						<div className='container compact-container card' key={url + i}>
+						<div className='compact-container card' key={url + i}>
 							<h2 className='url'> {url}</h2>
 							<div className='side-by-side'>
 								<Card compact={true} formFactor='PHONE' url={url} />
@@ -47,16 +47,16 @@ export function CompactList({ urls }: { urls: string[] }) {
 }
 
 const defaultURLList = `\
-https://www.google.com
-https://www.google.com/doodles\
-`;
+https://web.dev/lcp/
+https://web.dev/fid/
+https://web.dev/cls/`;
 
 export default function PageListWebVitals() {
 	const [urlList, setURLList] = useState(defaultURLList);
 	return (
 		<>
 			<TextAreaContainer onClick={setURLList} value={urlList} />
-			<CompactList urls={urlList.split('\n')} />
+			<CompactList urls={urlList.split('\n').filter(s => s.trim() !== '')} />
 		</>
 	);
 }
