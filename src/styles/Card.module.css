@@ -1,0 +1,47 @@
+.card {
+	composes: smooth-material from global;
+	background: var(--light);
+	color: var(--text);
+	overflow: hidden;
+	animation: fade-in 200ms ease;
+	position: relative;
+	margin-bottom: 20px;
+	padding: 4em 2em 2em 2em;
+}
+
+/* error card  */
+.card.error {
+	padding: 0.5em 1.5em !important;
+}
+
+/* device icon */
+.deviceIcon {
+	margin-top: 0;
+	font-weight: normal;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+.deviceIcon svg {
+	fill: var(--text-dull);
+}
+
+/* metrics container */
+.metricsContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 30px;
+}
+
+@media (max-width: 1200px) {
+	.metricsContainer {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 500px) {
+	.metricsContainer {
+		grid-template-columns: 1fr;
+	}
+}

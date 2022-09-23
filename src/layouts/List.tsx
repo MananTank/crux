@@ -1,6 +1,7 @@
 import { Suspense, useState } from 'react';
 import { Card } from '../components/Card';
 import { Loader } from '../components/Loader';
+import styles from '../styles/List.module.css';
 
 type TextAreaProps = {
 	value: string;
@@ -11,9 +12,8 @@ export function TextAreaContainer({ value, onClick }: TextAreaProps) {
 	const [input, setInput] = useState(value);
 
 	return (
-		<div className='container card textarea-container'>
+		<div className={styles.inputContainer}>
 			<textarea
-				className='url-list'
 				value={input}
 				onChange={e => {
 					setInput(e.target.value);
@@ -31,12 +31,12 @@ export function CompactList({ urls }: { urls: string[] }) {
 			{urls.map((url: string, i: number) => {
 				return (
 					<Suspense fallback={<Loader />} key={url}>
-						<div className='compact-container card' key={url + i}>
-							<h2 className='url'> {url}</h2>
-							<div className='side-by-side'>
-								<Card compact={true} formFactor='PHONE' url={url} />
-								<hr className='line' />
-								<Card compact={true} formFactor='DESKTOP' url={url} />
+						<div className={styles.compactList} key={url + i}>
+							<h2 className={styles.url}> {url}</h2>
+							<div>
+								<Card formFactor='PHONE' url={url} />
+								<hr className={styles.line} />
+								<Card formFactor='DESKTOP' url={url} />
 							</div>
 						</div>
 					</Suspense>
@@ -51,12 +51,13 @@ https://web.dev/lcp/
 https://web.dev/fid/
 https://web.dev/cls/`;
 
-export default function PageListWebVitals() {
+export function List() {
 	const [urlList, setURLList] = useState(defaultURLList);
+	const urls = urlList.split('\n').filter(s => s.trim() !== '');
 	return (
 		<>
 			<TextAreaContainer onClick={setURLList} value={urlList} />
-			<CompactList urls={urlList.split('\n').filter(s => s.trim() !== '')} />
+			<CompactList urls={urls} />
 		</>
 	);
 }

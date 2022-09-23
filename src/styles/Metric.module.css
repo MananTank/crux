@@ -1,0 +1,34 @@
+.title {
+	font-size: 22px;
+	margin-bottom: 14px;
+}
+
+.name {
+	display: inline-block;
+	margin-right: 0.5em;
+}
+
+.value span {
+	display: inline-block;
+}
+
+.value span:first-child {
+	margin-right: 0.2em;
+}
+
+.unit {
+	display: inline-block;
+	font-size: 0.8em;
+}
+
+.good {
+	color: var(--green);
+}
+
+.average {
+	color: var(--orange);
+}
+
+.poor {
+	color: var(--red);
+}

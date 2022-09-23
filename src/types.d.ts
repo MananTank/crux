@@ -1,8 +1,10 @@
+export type FormFactor = 'DESKTOP' | 'PHONE';
+
 export type CRUXRequestBody = {
 	// use one of these two
 	origin?: string;
 	url?: string;
-	formFactor: 'DESKTOP' | 'PHONE';
+	formFactor: FormFactor;
 	metrics?: ('LCP' | 'FID' | 'CLS' | 'FCP')[];
 };
 
@@ -38,7 +40,7 @@ export type LabelledBin = {
 	start: string;
 	end: string;
 	density: number;
-	label: string;
+	label: 'good' | 'average' | 'poor';
 	percentage: number;
 };
 
@@ -50,3 +52,11 @@ export type LabeledMetric = {
 };
 
 export type Mode = 'url' | 'origin' | 'list';
+
+export type CRUXError = {
+	error: {
+		message: string;
+	};
+};
+
+export type Label = 'poor' | 'average' | 'good';

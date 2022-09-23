@@ -1,0 +1,45 @@
+.header {
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logoContainer {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.links {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.links a {
+	text-decoration: none;
+	color: var(--text);
+	font-size: 20px;
+	display: block;
+	display: flex;
+	align-items: center;
+}
+
+.links a:hover {
+	transform: scale(1.2);
+	transition: transform 400ms ease;
+}
+
+.links svg {
+	--icon: var(--text);
+}
+
+.crux {
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+	color: var(--text);
+	font-weight: normal;
+	text-align: center;
+}

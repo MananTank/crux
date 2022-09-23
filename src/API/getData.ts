@@ -1,20 +1,21 @@
-import { CRUXRequestBody, CRUXResponse } from '../types';
-
-type CRUXError = {
-	error: {
-		message: string;
-	};
-};
+import { CRUXRequestBody, CRUXResponse, CRUXError, FormFactor, Mode } from '../types';
 
 /**
  * request is sent to worker to hide the key for CRUX API
  * worker will only accept requests for localhost or crux.pages.dev
  */
+export async function getData(url: string, formFactor: FormFactor, mode: Mode) {
+	const body: CRUXRequestBody = { formFactor };
 
-export async function getData(requestBody: CRUXRequestBody) {
+	if (mode === 'origin') {
+		body.origin = url;
+	} else {
+		body.url = url;
+	}
+
 	const resp = await fetch('https://crux.manantank.workers.dev', {
 		method: 'POST',
-		body: JSON.stringify(requestBody),
+		body: JSON.stringify(body),
 	});
 
 	return (await resp.json()) as CRUXResponse | CRUXError;

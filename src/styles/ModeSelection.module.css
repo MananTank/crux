@@ -1,0 +1,42 @@
+.options {
+	composes: smooth-material from global;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin-bottom: 20px;
+	position: relative;
+	background: var(--light);
+}
+
+.options button {
+	background: transparent;
+	transition: background 200ms ease, color 200ms ease;
+	z-index: 1;
+}
+
+.options button.active {
+	/* background: #5c6470; */
+	color: var(--light);
+}
+
+.options::before {
+	content: '';
+	background: var(--text);
+	width: 33.33%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	transition: transform 400ms ease;
+}
+
+.options[data-mode='url']::before {
+	transform: translateX(0);
+}
+
+.options[data-mode='origin']::before {
+	transform: translateX(100%);
+}
+
+.options[data-mode='list']::before {
+	transform: translateX(200%);
+}

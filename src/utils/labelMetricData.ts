@@ -1,4 +1,4 @@
-import { Metrics, LabeledMetric } from '../types';
+import { Metrics, LabeledMetric, Metric, Label } from '../types';
 
 const nameToAcronymMap = {
 	first_contentful_paint: 'FCP',
@@ -7,18 +7,17 @@ const nameToAcronymMap = {
 	cumulative_layout_shift: 'CLS',
 };
 
-const standardBinLabels = ['good', 'needs-improvement', 'poor'];
+const standardBinLabels: Label[] = ['good', 'average', 'poor'];
 
-export function labelMetricData(metrics: Metrics): LabeledMetric[] {
+export function labelMetricData(metrics: Metrics) {
 	const supportedMetrics = Object.keys(metrics).filter(k => k in nameToAcronymMap);
 
 	return supportedMetrics.map(metricName => {
 		// @ts-ignore
-		const metricData = metrics[metricName];
+		const metricData = metrics[metricName] as unknown as Metric;
 
 		// @ts-ignore
 		const labeledBins = metricData.histogram.map((bin, i) => {
-			// Assign a good/poor label, calculate a percentage, and add retain all existing bin properties
 			return {
 				label: standardBinLabels[i],
 				percentage: bin.density * 100,
@@ -33,5 +32,5 @@ export function labelMetricData(metrics: Metrics): LabeledMetric[] {
 			labeledBins,
 			p75: metricData.percentiles.p75,
 		};
-	});
+	}) as LabeledMetric[];
 }

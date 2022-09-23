@@ -1,0 +1,22 @@
+.inputContainer {
+	display: grid;
+	grid-template-columns: 1fr;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: var(--shadow);
+	border-radius: 5px;
+	margin-bottom: 50px;
+}
+
+@media (max-width: 500px) {
+	.inputContainer {
+		grid-template-columns: 1fr;
+	}
+}
+
+.inputContainer button {
+	background: var(--blue);
+	color: var(--light);
+	letter-spacing: 0.1em;
+	cursor: pointer;
+}

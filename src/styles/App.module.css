@@ -1,0 +1,23 @@
+.footer {
+	padding: 20px;
+	margin-top: auto;
+	align-self: flex-end;
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+	color: var(--text-dull);
+}
+
+.footer a {
+	color: inherit;
+	text-underline-offset: 3px;
+}
+
+.app {
+	padding: 20px;
+	max-width: 900px;
+	width: 100%;
+	margin: 0 auto;
+	/* margin-top: 60px; */
+}

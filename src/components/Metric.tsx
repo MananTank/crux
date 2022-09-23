@@ -1,21 +1,21 @@
 import { Bar } from './Bar';
-import { getRating } from '../utils/getRating';
+import { getLabel } from '../utils/getLabel';
 import { LabeledMetric } from '../types';
+import styles from '../styles/Metric.module.css';
 
 type MetricProps = {
 	metric: LabeledMetric;
-	compact?: boolean;
 };
 
-export function Metric({ metric, compact }: MetricProps) {
-	let rating = getRating(metric);
+export function Metric({ metric }: MetricProps) {
+	let label = getLabel(metric);
 	return (
-		<article className={compact ? 'web-vital-compact' : ''}>
-			<h3 className='web-vital--acronym'>
-				<span className='web-vital-name'> {metric.acronym}</span>
-				<span className={`web-vital-value ${rating}`}>
-					<span className={rating}> {metric.p75} </span>
-					<span className='unit'>{metric.acronym === 'CLS' ? '' : 'ms'} </span>
+		<article>
+			<h3 className={styles.title}>
+				<span className={styles.name}> {metric.acronym} </span>
+				<span className={`${styles.value} ${styles[label]}`}>
+					<span> {metric.p75} </span>
+					<span className={styles.unit}>{metric.acronym === 'CLS' ? '' : 'ms'}</span>
 				</span>
 			</h3>
 			<Bar labeledBins={metric.labeledBins} />

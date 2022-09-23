@@ -3,40 +3,13 @@ import { useState, Suspense, useContext } from 'react';
 import { Loader } from '../components/Loader';
 import { ModeCtx } from '../context';
 import { Mode } from '../types';
+import styles from '../styles/Page.module.css';
 
 function getInitialURL(mode: Mode) {
 	const href = new URL(window.location.href);
 	const testURL = href.searchParams.get('url');
 	const defaultURL = mode === 'url' ? 'https://web.dev/vitals/' : 'https://web.dev';
 	return testURL || defaultURL;
-}
-
-type InputProps = {
-	onSubmit: (url: string) => any;
-	value: string;
-};
-
-export function Input({ onSubmit, value }: InputProps) {
-	const [input, setInput] = useState(value);
-
-	return (
-		<div className='input-container'>
-			<input
-				aria-label='Enter URL'
-				onChange={event => {
-					setInput(event.target.value);
-				}}
-				value={input}
-				type='url'
-				onKeyDown={event => {
-					if (event.key === 'Enter') onSubmit(input);
-				}}
-			/>
-			<button type='button' onClick={() => onSubmit(input)}>
-				GET CrUX
-			</button>
-		</div>
-	);
 }
 
 export function Page() {
@@ -53,5 +26,33 @@ export function Page() {
 				</main>
 			</Suspense>
 		</>
+	);
+}
+
+type InputProps = {
+	onSubmit: (url: string) => any;
+	value: string;
+};
+
+function Input({ onSubmit, value }: InputProps) {
+	const [input, setInput] = useState(value);
+
+	return (
+		<div className={styles.inputContainer}>
+			<input
+				aria-label='Enter URL'
+				onChange={event => {
+					setInput(event.target.value);
+				}}
+				value={input}
+				type='url'
+				onKeyDown={event => {
+					if (event.key === 'Enter') onSubmit(input);
+				}}
+			/>
+			<button type='button' onClick={() => onSubmit(input)}>
+				GET CrUX
+			</button>
+		</div>
 	);
 }

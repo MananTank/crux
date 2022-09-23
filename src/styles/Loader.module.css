@@ -1,0 +1,9 @@
+.loader {
+	color: var(--text-dull);
+	text-align: center;
+	height: 300px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

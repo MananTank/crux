@@ -1,0 +1,36 @@
+.percentageContainer {
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
+.barContainer {
+	display: flex;
+	height: 40px;
+	border-radius: 4px;
+	overflow: hidden;
+	/* box-shadow: 3px 3px 6px rgba(55, 84, 170, 0.1); */
+}
+
+.barContainer .good {
+	background-color: var(--green);
+}
+
+.barContainer .average {
+	background-color: var(--orange);
+}
+
+.barContainer .poor {
+	background-color: var(--red);
+}
+
+.percentageContainer .good {
+	color: var(--green);
+}
+
+.percentageContainer .average {
+	color: var(--orange);
+}
+
+.percentageContainer .poor {
+	color: var(--red);
+}

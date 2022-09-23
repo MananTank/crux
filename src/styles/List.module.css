@@ -1,0 +1,61 @@
+.compactList {
+	padding: 2em;
+	padding-bottom: 1em;
+	background: var(--light);
+	padding-top: 1.5em;
+	margin-bottom: 30px;
+	composes: smooth-material from global;
+}
+
+.compactList [data-card] {
+	box-shadow: none;
+	padding: 1em;
+	margin-top: 1em;
+	margin: 0;
+	padding-left: 0;
+	/* padding-right: 0; */
+}
+
+.url {
+	font-size: 16px;
+	color: var(--text-dull);
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 1.5em;
+}
+
+.line {
+	background: hsl(215deg 18% 90%);
+	height: 2px;
+	margin: 18px 0;
+	outline: none;
+	border: none;
+}
+
+.compactList [data-device-icon] {
+	right: 0;
+	top: 0;
+}
+
+.compactList [data-bar-container] {
+	height: 30px;
+	border-radius: 2px;
+}
+
+.inputContainer {
+	composes: smooth-material from global;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+.inputContainer textarea {
+	height: 150px;
+	resize: vertical;
+	min-height: 100px;
+	line-height: 1.5;
+}
+
+.inputContainer button {
+	background: var(--blue);
+	color: var(--light);
+}
