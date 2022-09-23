@@ -15,8 +15,8 @@
 }
 
 .inputContainer button {
-	background: var(--blue);
-	color: var(--light);
+	background: var(--primary);
+	color: var(--primary-text);
 	letter-spacing: 0.1em;
 	cursor: pointer;
 }

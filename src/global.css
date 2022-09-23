@@ -9,11 +9,26 @@ html {
 	--light: white;
 	--text: #2f3640;
 	--text-dull: #7f8fa6;
-	--blue: #0652dd;
+	--primary: #0652dd;
 	--green: hsl(118, 41%, 47%);
 	--orange: hsl(31, 78%, 53%);
 	--red: hsl(359, 80%, 50%);
 	--shadow: 4px 4px 10px rgba(55, 84, 170, 0.15);
+	--selected-option-bg: var(--text);
+	--selected-option-text: var(--light);
+	--primary-text: var(--light);
+}
+
+.dark-mode {
+	--bg: hsl(232deg 27% 6%);
+	--light: hsl(232deg 17% 14%);
+	--text: #ffffff;
+	--text-dull: hsl(215deg 18% 50%);
+	--primary: hsl(232deg 37% 84%);
+	--selected-option-bg: hsl(232deg 17% 34%);
+	--shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+	--green: hsl(118, 65%, 57%);
+	--primary-text: black;
 }
 
 body,

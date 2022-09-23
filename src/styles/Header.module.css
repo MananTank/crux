@@ -43,3 +43,8 @@
 	font-weight: normal;
 	text-align: center;
 }
+
+.themeSwitcher {
+	padding: 0;
+	background: none;
+}

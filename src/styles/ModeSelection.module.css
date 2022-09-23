@@ -12,16 +12,16 @@
 	background: transparent;
 	transition: background 200ms ease, color 200ms ease;
 	z-index: 1;
+	color: var(--text);
 }
 
 .options button.active {
-	/* background: #5c6470; */
-	color: var(--light);
+	color: var(--selected-option-text);
 }
 
 .options::before {
 	content: '';
-	background: var(--text);
+	background: var(--selected-option-bg);
 	width: 33.33%;
 	height: 100%;
 	position: absolute;

@@ -25,7 +25,8 @@
 }
 
 .line {
-	background: hsl(215deg 18% 90%);
+	background: var(--text-dull);
+	opacity: 0.3;
 	height: 2px;
 	margin: 18px 0;
 	outline: none;
@@ -53,9 +54,11 @@
 	resize: vertical;
 	min-height: 100px;
 	line-height: 1.5;
+	background: var(--light);
+	color: var(--text);
 }
 
 .inputContainer button {
-	background: var(--blue);
-	color: var(--light);
+	background: var(--primary);
+	color: var(--primary-text);
 }
