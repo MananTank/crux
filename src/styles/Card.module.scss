@@ -7,41 +7,38 @@
 	position: relative;
 	margin-bottom: 20px;
 	padding: 4em 2em 2em 2em;
+
+	&.error {
+		padding: 0.5em 1.5em !important;
+	}
 }
 
-/* error card  */
-.card.error {
-	padding: 0.5em 1.5em !important;
-}
-
-/* device icon */
 .deviceIcon {
 	margin-top: 0;
 	font-weight: normal;
 	position: absolute;
 	top: 1em;
 	right: 1em;
+
+	svg {
+		fill: var(--text-dull);
+	}
 }
 
-.deviceIcon svg {
-	fill: var(--text-dull);
-}
-
-/* metrics container */
 .metricsContainer {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 30px;
-}
 
-@media (max-width: 1200px) {
-	.metricsContainer {
-		grid-template-columns: 1fr 1fr;
+	@media (max-width: 1200px) {
+		& {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
-}
 
-@media (max-width: 500px) {
-	.metricsContainer {
-		grid-template-columns: 1fr;
+	@media (max-width: 500px) {
+		& {
+			grid-template-columns: 1fr;
+		}
 	}
 }

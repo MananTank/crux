@@ -1,7 +1,7 @@
 import { ModeCtx } from '../context';
 import { useContext } from 'react';
 import { Mode } from '../types';
-import styles from '../styles/ModeSelection.module.css';
+import styles from '../styles/ModeSelection.module.scss';
 
 type SelectModeProps = {
 	mode: Mode;
@@ -22,6 +22,7 @@ export function ModeSelection() {
 	const [mode] = useContext(ModeCtx);
 	return (
 		<div className={styles.options} data-mode={mode}>
+			<div className={styles.bg}></div>
 			<SelectMode mode='url' text='URL' />
 			<SelectMode mode='origin' text='ORIGIN' />
 			<SelectMode mode='list' text='URL LIST' />

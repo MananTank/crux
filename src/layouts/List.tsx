@@ -1,7 +1,8 @@
 import { Suspense, useState } from 'react';
-import { Card } from '../components/Card';
 import { Loader } from '../components/Loader';
-import styles from '../styles/List.module.css';
+import styles from '../styles/List.module.scss';
+import Card from '../components/Card';
+import { ClientOnly } from '../components/ClientOnly';
 
 type TextAreaProps = {
 	value: string;
@@ -17,7 +18,8 @@ export function TextAreaContainer({ value, onClick }: TextAreaProps) {
 				value={input}
 				onChange={e => {
 					setInput(e.target.value);
-				}}></textarea>
+				}}
+			></textarea>
 			<button type='button' onClick={() => onClick(input)}>
 				GET CrUX
 			</button>
@@ -57,7 +59,9 @@ export function List() {
 	return (
 		<>
 			<TextAreaContainer onClick={setURLList} value={urlList} />
-			<CompactList urls={urls} />
+			<ClientOnly fallback={<Loader />}>
+				<CompactList urls={urls} />
+			</ClientOnly>
 		</>
 	);
 }

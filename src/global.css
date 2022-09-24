@@ -4,6 +4,15 @@
 	margin: 0;
 }
 
+/* latin-ext */
+@font-face {
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/RobotoMono.woff2) format('woff2');
+}
+
 html {
 	--bg: #e8e8f3;
 	--light: white;
@@ -26,7 +35,7 @@ html {
 	--text-dull: hsl(215deg 18% 50%);
 	--primary: hsl(232deg 37% 84%);
 	--selected-option-bg: hsl(232deg 17% 34%);
-	--shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+	--shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
 	--green: hsl(118, 65%, 57%);
 	--primary-text: black;
 }

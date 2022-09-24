@@ -6,14 +6,15 @@ import useSWR from 'swr';
 import { mobileIcon, desktopIcon } from '../icons';
 import { useContext } from 'react';
 import { ModeCtx } from '../context';
-import styles from '../styles/Card.module.css';
+import styles from '../styles/Card.module.scss';
+import { useState, useEffect } from 'react';
 
 type CardProps = {
 	formFactor: FormFactor;
 	url: string;
 };
 
-export function Card(props: CardProps) {
+export default function Card(props: CardProps) {
 	const [mode] = useContext(ModeCtx);
 	const { formFactor, url } = props;
 	const key = url + mode + formFactor;
@@ -23,7 +24,6 @@ export function Card(props: CardProps) {
 
 	if (!data) return null;
 	const hasError = 'error' in data;
-
 	const cardClass = `${styles.card} ${hasError ? styles.error : ''}`;
 
 	return (

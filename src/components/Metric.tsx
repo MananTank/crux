@@ -1,7 +1,7 @@
 import { Bar } from './Bar';
 import { getLabel } from '../utils/getLabel';
 import { LabeledMetric } from '../types';
-import styles from '../styles/Metric.module.css';
+import styles from '../styles/Metric.module.scss';
 
 type MetricProps = {
 	metric: LabeledMetric;

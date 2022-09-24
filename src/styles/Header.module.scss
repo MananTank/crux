@@ -15,24 +15,24 @@
 	display: flex;
 	gap: 20px;
 	align-items: center;
-}
 
-.links a {
-	text-decoration: none;
-	color: var(--text);
-	font-size: 20px;
-	display: block;
-	display: flex;
-	align-items: center;
-}
+	a {
+		text-decoration: none;
+		color: var(--text);
+		font-size: 20px;
+		display: block;
+		display: flex;
+		align-items: center;
 
-.links a:hover {
-	transform: scale(1.2);
-	transition: transform 400ms ease;
-}
+		&:hover {
+			transform: scale(1.2);
+			transition: transform 400ms ease;
+		}
+	}
 
-.links svg {
-	--icon: var(--text);
+	svg {
+		--icon: var(--text);
+	}
 }
 
 .crux {

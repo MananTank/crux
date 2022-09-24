@@ -1,0 +1,35 @@
+.percentageContainer {
+	font-size: 12px;
+	margin-bottom: 8px;
+
+	.good {
+		color: var(--green);
+	}
+
+	.average {
+		color: var(--orange);
+	}
+
+	.poor {
+		color: var(--red);
+	}
+}
+
+.barContainer {
+	display: flex;
+	height: 40px;
+	border-radius: 4px;
+	overflow: hidden;
+
+	.good {
+		background-color: var(--green);
+	}
+
+	.average {
+		background-color: var(--orange);
+	}
+
+	.poor {
+		background-color: var(--red);
+	}
+}

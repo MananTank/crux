@@ -7,11 +7,11 @@
 	width: 100%;
 	font-size: 14px;
 	color: var(--text-dull);
-}
 
-.footer a {
-	color: inherit;
-	text-underline-offset: 3px;
+	a {
+		color: inherit;
+		text-underline-offset: 3px;
+	}
 }
 
 .app {
@@ -19,5 +19,4 @@
 	max-width: 900px;
 	width: 100%;
 	margin: 0 auto;
-	/* margin-top: 60px; */
 }

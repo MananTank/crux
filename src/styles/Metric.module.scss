@@ -8,12 +8,14 @@
 	margin-right: 0.5em;
 }
 
-.value span {
-	display: inline-block;
-}
+.value {
+	span {
+		display: inline-block;
 
-.value span:first-child {
-	margin-right: 0.2em;
+		&:first-child {
+			margin-right: 0.2em;
+		}
+	}
 }
 
 .unit {

@@ -1,5 +1,5 @@
 import { Label, LabelledBin } from '../types';
-import styles from '../styles/Bar.module.css';
+import styles from '../styles/Bar.module.scss';
 
 type BarProps = {
 	labeledBins: LabelledBin[];

@@ -18,5 +18,7 @@ export async function getData(url: string, formFactor: FormFactor, mode: Mode) {
 		body: JSON.stringify(body),
 	});
 
-	return (await resp.json()) as CRUXResponse | CRUXError;
+	const data = await resp.json();
+
+	return data as CRUXResponse | CRUXError;
 }

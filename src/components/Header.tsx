@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { InfoIcon, githubIcon, sun, moon } from '../icons';
-import styles from '../styles/Header.module.css';
+import styles from '../styles/Header.module.scss';
 
 export function Header() {
 	const [isLightTheme, setIsLightTheme] = useState(true);
