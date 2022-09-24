@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "preexport": "npm run build",
+    "export": "next export",
+    "prestart": "npm run export",
+    "lint": "next lint"
   },
   "dependencies": {
     "critters": "^0.0.16",
