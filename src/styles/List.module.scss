@@ -1,63 +1,63 @@
 .inputContainer {
-	composes: smooth-material from global;
-	overflow: hidden;
-	margin-bottom: 50px;
+  composes: smooth-material from global;
+  overflow: hidden;
+  margin-bottom: 50px;
 
-	textarea {
-		height: 150px;
-		resize: vertical;
-		min-height: 100px;
-		line-height: 1.5;
-		background: var(--light);
-		color: var(--text);
-	}
+  textarea {
+    height: 150px;
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+    background: var(--light);
+    color: var(--text);
+  }
 
-	button {
-		background: var(--primary);
-		color: var(--primary-text);
-	}
+  button {
+    background: var(--primary);
+    color: var(--primary-text);
+  }
 }
 
 .compactList {
-	padding: 2em;
-	padding-bottom: 1em;
-	background: var(--light);
-	padding-top: 1.5em;
-	margin-bottom: 30px;
-	composes: smooth-material from global;
+  padding: 2em;
+  padding-bottom: 1em;
+  background: var(--light);
+  padding-top: 1.5em;
+  margin-bottom: 30px;
+  composes: smooth-material from global;
 
-	[data-card] {
-		box-shadow: none;
-		padding: 1em;
-		margin-top: 1em;
-		margin: 0;
-		padding-left: 0;
-	}
+  [data-card] {
+    box-shadow: none;
+    padding: 1em;
+    margin-top: 1em;
+    margin: 0;
+    padding-left: 0;
+  }
 
-	[data-device-icon] {
-		right: 0;
-		top: 0.5em;
-	}
+  [data-device-icon] {
+    right: 0;
+    top: 0.5em;
+  }
 
-	[data-bar-container] {
-		height: 30px;
-		border-radius: 2px;
-	}
+  [data-bar-container] {
+    height: 30px;
+    border-radius: 2px;
+  }
 }
 
 .url {
-	font-size: 16px;
-	color: var(--text-dull);
-	font-weight: normal;
-	margin-top: 0;
-	margin-bottom: 1.5em;
+  font-size: 16px;
+  color: var(--text-dull);
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 1.5em;
 }
 
 .line {
-	background: var(--text-dull);
-	opacity: 0.3;
-	height: 2px;
-	margin: 18px 0;
-	outline: none;
-	border: none;
+  background: var(--text-dull);
+  opacity: 0.3;
+  height: 2px;
+  margin: 18px 0;
+  outline: none;
+  border: none;
 }

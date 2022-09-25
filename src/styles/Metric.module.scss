@@ -1,36 +1,36 @@
 .title {
-	font-size: 22px;
-	margin-bottom: 14px;
+  font-size: 22px;
+  margin-bottom: 14px;
 }
 
 .name {
-	display: inline-block;
-	margin-right: 0.5em;
+  display: inline-block;
+  margin-right: 0.5em;
 }
 
 .value {
-	span {
-		display: inline-block;
+  span {
+    display: inline-block;
 
-		&:first-child {
-			margin-right: 0.2em;
-		}
-	}
+    &:first-child {
+      margin-right: 0.2em;
+    }
+  }
 }
 
 .unit {
-	display: inline-block;
-	font-size: 0.8em;
+  display: inline-block;
+  font-size: 0.8em;
 }
 
 .good {
-	color: var(--green);
+  color: var(--green);
 }
 
 .average {
-	color: var(--orange);
+  color: var(--orange);
 }
 
 .poor {
-	color: var(--red);
+  color: var(--red);
 }

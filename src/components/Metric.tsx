@@ -1,24 +1,24 @@
-import { Bar } from './Bar';
-import { getLabel } from '../utils/getLabel';
-import { LabeledMetric } from '../types';
-import styles from '../styles/Metric.module.scss';
+import { Bar } from './Bar'
+import { getLabel } from '../utils/getLabel'
+import { LabeledMetric } from '../types'
+import styles from '../styles/Metric.module.scss'
 
 type MetricProps = {
-	metric: LabeledMetric;
-};
+  metric: LabeledMetric
+}
 
 export function Metric({ metric }: MetricProps) {
-	const label = getLabel(metric);
-	return (
-		<article>
-			<h3 className={styles.title}>
-				<span className={styles.name}> {metric.acronym} </span>
-				<span className={`${styles.value} ${styles[label]}`}>
-					<span> {metric.p75} </span>
-					<span className={styles.unit}>{metric.acronym === 'CLS' ? '' : 'ms'}</span>
-				</span>
-			</h3>
-			<Bar labeledBins={metric.labeledBins} />
-		</article>
-	);
+  const label = getLabel(metric)
+  return (
+    <article>
+      <h3 className={styles.title}>
+        <span className={styles.name}> {metric.acronym} </span>
+        <span className={`${styles.value} ${styles[label]}`}>
+          <span> {metric.p75} </span>
+          <span className={styles.unit}>{metric.acronym === 'CLS' ? '' : 'ms'}</span>
+        </span>
+      </h3>
+      <Bar labeledBins={metric.labeledBins} />
+    </article>
+  )
 }

@@ -1,50 +1,50 @@
 .header {
-	margin-bottom: 40px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logoContainer {
-	display: flex;
-	align-items: center;
-	gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .links {
-	display: flex;
-	gap: 20px;
-	align-items: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 
-	a {
-		text-decoration: none;
-		color: var(--text);
-		font-size: 20px;
-		display: block;
-		display: flex;
-		align-items: center;
+  a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 20px;
+    display: block;
+    display: flex;
+    align-items: center;
 
-		&:hover {
-			transform: scale(1.2);
-			transition: transform 400ms ease;
-		}
-	}
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 400ms ease;
+    }
+  }
 
-	svg {
-		--icon: var(--text);
-	}
+  svg {
+    --icon: var(--text);
+  }
 }
 
 .crux {
-	font-size: 30px;
-	margin: 0;
-	padding: 0;
-	color: var(--text);
-	font-weight: normal;
-	text-align: center;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-weight: normal;
+  text-align: center;
 }
 
 .themeSwitcher {
-	padding: 0;
-	background: none;
+  padding: 0;
+  background: none;
 }

@@ -1,41 +1,41 @@
 .options {
-	composes: smooth-material from global;
-	overflow: hidden;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	margin-bottom: 20px;
-	position: relative;
-	background: var(--light);
+  composes: smooth-material from global;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
+  position: relative;
+  background: var(--light);
 
-	.bg {
-		background: var(--selected-option-bg);
-		width: 33.33%;
-		height: 100%;
-		position: absolute;
-		left: 0;
-		transition: transform 400ms ease;
-	}
+  .bg {
+    background: var(--selected-option-bg);
+    width: 33.33%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: transform 400ms ease;
+  }
 
-	&[data-mode='url'] .bg {
-		transform: translateX(0);
-	}
+  &[data-mode='url'] .bg {
+    transform: translateX(0);
+  }
 
-	&[data-mode='origin'] .bg {
-		transform: translateX(100%);
-	}
+  &[data-mode='origin'] .bg {
+    transform: translateX(100%);
+  }
 
-	&[data-mode='list'] .bg {
-		transform: translateX(200%);
-	}
+  &[data-mode='list'] .bg {
+    transform: translateX(200%);
+  }
 
-	button {
-		background: transparent;
-		transition: background 200ms ease, color 200ms ease;
-		z-index: 1;
-		color: var(--text);
+  button {
+    background: transparent;
+    transition: background 200ms ease, color 200ms ease;
+    z-index: 1;
+    color: var(--text);
 
-		&.active {
-			color: var(--selected-option-text);
-		}
-	}
+    &.active {
+      color: var(--selected-option-text);
+    }
+  }
 }

@@ -1,107 +1,107 @@
 * {
-	padding: 0;
-	box-sizing: border-box;
-	margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 /* latin-ext */
 @font-face {
-	font-family: 'Roboto Mono';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(/RobotoMono.woff2) format('woff2');
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/RobotoMono.woff2) format('woff2');
 }
 
 html {
-	--bg: #e8e8f3;
-	--light: white;
-	--text: #2f3640;
-	--text-dull: #7f8fa6;
-	--primary: #0652dd;
-	--green: hsl(118, 41%, 47%);
-	--orange: hsl(31, 78%, 53%);
-	--red: hsl(359, 80%, 50%);
-	--shadow: 4px 4px 10px rgba(55, 84, 170, 0.15);
-	--selected-option-bg: var(--text);
-	--selected-option-text: var(--light);
-	--primary-text: var(--light);
+  --bg: #e8e8f3;
+  --light: white;
+  --text: #2f3640;
+  --text-dull: #7f8fa6;
+  --primary: #0652dd;
+  --green: hsl(118, 41%, 47%);
+  --orange: hsl(31, 78%, 53%);
+  --red: hsl(359, 80%, 50%);
+  --shadow: 4px 4px 10px rgba(55, 84, 170, 0.15);
+  --selected-option-bg: var(--text);
+  --selected-option-text: var(--light);
+  --primary-text: var(--light);
 }
 
 .dark-mode {
-	--bg: hsl(232deg 27% 6%);
-	--light: hsl(232deg 17% 14%);
-	--text: #ffffff;
-	--text-dull: hsl(215deg 18% 50%);
-	--primary: hsl(232deg 37% 84%);
-	--selected-option-bg: hsl(232deg 17% 34%);
-	--shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-	--green: hsl(118, 65%, 57%);
-	--primary-text: black;
+  --bg: hsl(232deg 27% 6%);
+  --light: hsl(232deg 17% 14%);
+  --text: #ffffff;
+  --text-dull: hsl(215deg 18% 50%);
+  --primary: hsl(232deg 37% 84%);
+  --selected-option-bg: hsl(232deg 17% 34%);
+  --shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  --green: hsl(118, 65%, 57%);
+  --primary-text: black;
 }
 
 body,
 input,
 button,
 textarea {
-	font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 body {
-	background: var(--bg);
-	color: var(--text);
+  background: var(--bg);
+  color: var(--text);
 }
 
 .error {
-	color: var(--red) !important;
+  color: var(--red) !important;
 }
 
 input,
 button,
 textarea {
-	padding: 1em 1.5em;
-	border: none;
-	width: 100%;
-	font-size: 14px;
-	display: block;
+  padding: 1em 1.5em;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  display: block;
 }
 
 input {
-	background: var(--light);
-	color: var(--text);
+  background: var(--light);
+  color: var(--text);
 }
 
 input:active,
 input:focus,
 textarea:focus {
-	outline: none;
+  outline: none;
 }
 
 @keyframes fade-in {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 #root {
-	padding-top: 30px;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .smooth-material {
-	box-shadow: var(--shadow);
-	border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: 5px;
 }
