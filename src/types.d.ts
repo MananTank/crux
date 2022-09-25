@@ -29,7 +29,7 @@ export type Metrics = {
 export type CRUXRecord = {
 	key: object;
 	metrics: Metrics;
-	urlNormalizationDetails: Object;
+	urlNormalizationDetails: object;
 };
 
 export type CRUXResponse = {

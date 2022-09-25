@@ -35,7 +35,7 @@ export function Page() {
 }
 
 type InputProps = {
-	onSubmit: (url: string) => any;
+	onSubmit: (url: string) => void;
 	value: string;
 };
 

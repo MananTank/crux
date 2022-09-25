@@ -20,19 +20,27 @@ export function Header() {
 							document.body.classList.remove('dark-mode');
 						}
 						setIsLightTheme(!isLightTheme);
-					}}>
+					}}
+				>
 					{isLightTheme ? sun : moon}
 				</button>
 
 				<a
+					rel='noreferrer'
 					href='https://developer.chrome.com/docs/crux/about/'
 					target='_blank'
 					aria-label='what is CrUX?'
-					title='What is CrUX?'>
+					title='What is CrUX?'
+				>
 					{InfoIcon}
 				</a>
 
-				<a href='https://github.com/MananTank/crux' target='_blank' aria-label='View on Github'>
+				<a
+					rel='noreferrer'
+					href='https://github.com/MananTank/crux'
+					target='_blank'
+					aria-label='View on Github'
+				>
 					{githubIcon}
 				</a>
 			</div>

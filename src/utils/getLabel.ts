@@ -15,7 +15,8 @@ const rater = {
 	FCP: bounds(2000, 4000),
 };
 
+type WebVitalAcronym = keyof typeof rater;
+
 export function getLabel(metric: LabeledMetric): Label {
-	// @ts-ignore
-	return rater[metric.acronym](Number(metric.p75));
+	return rater[metric.acronym as WebVitalAcronym](Number(metric.p75));
 }

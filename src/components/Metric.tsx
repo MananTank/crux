@@ -8,7 +8,7 @@ type MetricProps = {
 };
 
 export function Metric({ metric }: MetricProps) {
-	let label = getLabel(metric);
+	const label = getLabel(metric);
 	return (
 		<article>
 			<h3 className={styles.title}>

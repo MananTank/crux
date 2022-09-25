@@ -6,7 +6,7 @@ import { ClientOnly } from '../components/ClientOnly';
 
 type TextAreaProps = {
 	value: string;
-	onClick: (str: string) => any;
+	onClick: (str: string) => void;
 };
 
 export function TextAreaContainer({ value, onClick }: TextAreaProps) {

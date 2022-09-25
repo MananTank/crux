@@ -7,7 +7,6 @@ import { mobileIcon, desktopIcon } from '../icons';
 import { useContext } from 'react';
 import { ModeCtx } from '../context';
 import styles from '../styles/Card.module.scss';
-import { useState, useEffect } from 'react';
 
 type CardProps = {
 	formFactor: FormFactor;

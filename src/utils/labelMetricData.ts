@@ -1,4 +1,4 @@
-import { Metrics, LabeledMetric, Metric, Label } from '../types';
+import { Metrics, LabeledMetric, Label } from '../types';
 
 const nameToAcronymMap = {
 	first_contentful_paint: 'FCP',
@@ -12,11 +12,11 @@ const standardBinLabels: Label[] = ['good', 'average', 'poor'];
 export function labelMetricData(metrics: Metrics) {
 	const supportedMetrics = Object.keys(metrics).filter(k => k in nameToAcronymMap);
 
-	return supportedMetrics.map(metricName => {
-		// @ts-ignore
-		const metricData = metrics[metricName] as unknown as Metric;
+	return supportedMetrics.map(_metricName => {
+		const metricName = _metricName as keyof Metrics;
 
-		// @ts-ignore
+		const metricData = metrics[metricName];
+
 		const labeledBins = metricData.histogram.map((bin, i) => {
 			return {
 				label: standardBinLabels[i],
@@ -26,7 +26,6 @@ export function labelMetricData(metrics: Metrics) {
 		});
 
 		return {
-			// @ts-ignore
 			acronym: nameToAcronymMap[metricName],
 			name: metricName,
 			labeledBins,

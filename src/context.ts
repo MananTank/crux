@@ -3,5 +3,4 @@ import { Mode } from './types';
 
 type ModeCtxValue = [mode: Mode, setMode: (newMode: Mode) => void];
 
-// @ts-ignore
-export const ModeCtx = createContext<ModeCtxValue>();
+export const ModeCtx = createContext<ModeCtxValue>(['url', () => null]);

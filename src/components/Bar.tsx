@@ -1,4 +1,4 @@
-import { Label, LabelledBin } from '../types';
+import { LabelledBin } from '../types';
 import styles from '../styles/Bar.module.scss';
 
 type BarProps = {
@@ -21,7 +21,8 @@ export function Bar({ labeledBins }: BarProps) {
 						<div
 							key={bin.label}
 							style={{ width: bin.percentage + '%' }}
-							className={styles[bin.label]}>
+							className={styles[bin.label]}
+						>
 							{' '}
 						</div>
 					);
