@@ -9,7 +9,11 @@
 	padding: 4em 2em 2em 2em;
 
 	&.error {
-		padding: 0.5em 1.5em !important;
+		padding: 1.5em;
+
+		p {
+			color: var(--red);
+		}
 	}
 }
 
