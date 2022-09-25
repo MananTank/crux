@@ -15,7 +15,9 @@ Check out [crux.pages.dev](https://crux.pages.dev/)
 Application is created with
 
 - TypeScript
-- React v18 (Suspense API)
+- Next.js
+- React v18 ( with Suspense API )
 - SWR
 - CrUX API
 - CloudFlare Workers ( proxies CrUX API, used for keeping the CrUX key secret )
+- CSS Modules ( SCSS )
