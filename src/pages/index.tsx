@@ -50,12 +50,15 @@ export default function App() {
     modeUpdated.current = true
     const url = new URL(window.location.href)
 
-    if (url.searchParams.get('origin')) {
+    const originValue = url.searchParams.get('origin')
+    const listValue = url.searchParams.get('list')
+
+    if (originValue) {
       setMode('origin')
-      setInput(url.searchParams.get('origin'))
-    } else if (url.searchParams.get('list')) {
+      setInput(originValue)
+    } else if (listValue) {
       setMode('list')
-      setInput(url.searchParams.get('list'))
+      setInput(listValue)
     }
   }, [])
 
