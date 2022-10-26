@@ -13,7 +13,6 @@
     height: 100%;
     position: absolute;
     left: 0;
-    transition: transform 400ms ease;
   }
 
   &[data-mode='url'] .bg {
@@ -38,4 +37,8 @@
       color: var(--selected-option-text);
     }
   }
+}
+
+:global(body.hydrated) .bg {
+  transition: transform 400ms ease;
 }

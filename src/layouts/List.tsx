@@ -6,21 +6,20 @@ import { ClientOnly } from '../components/ClientOnly'
 
 type TextAreaProps = {
   value: string
-  onClick: (str: string) => void
+  onEnter: (value: string) => void
 }
 
-export function TextAreaContainer({ value, onClick }: TextAreaProps) {
+export function TextAreaContainer({ value, onEnter }: TextAreaProps) {
   const [input, setInput] = useState(value)
-
   return (
     <div className={styles.inputContainer}>
       <textarea
-        value={input}
+        value={input.replace(/,/g, '\n')}
         onChange={e => {
-          setInput(e.target.value)
+          setInput(e.target.value.replace(/\n/g, ','))
         }}
       ></textarea>
-      <button type="button" onClick={() => onClick(input)}>
+      <button type="button" onClick={() => onEnter(input)}>
         GET CrUX
       </button>
     </div>
@@ -48,17 +47,21 @@ export function CompactList({ urls }: { urls: string[] }) {
   )
 }
 
-const defaultURLList = `\
-https://web.dev/lcp/
-https://web.dev/fid/
-https://web.dev/cls/`
+export function List(props: { input: string; setInput: (value: string) => void }) {
+  console.log('got input', props.input)
+  const urls = props.input
+    .split(',')
+    .map(v => v.trim())
+    .filter(s => s !== '')
 
-export function List() {
-  const [urlList, setURLList] = useState(defaultURLList)
-  const urls = urlList.split('\n').filter(s => s.trim() !== '')
   return (
     <>
-      <TextAreaContainer onClick={setURLList} value={urlList} />
+      <TextAreaContainer
+        onEnter={value => {
+          props.setInput(value)
+        }}
+        value={props.input}
+      />
       <ClientOnly fallback={<Loader />}>
         <CompactList urls={urls} />
       </ClientOnly>

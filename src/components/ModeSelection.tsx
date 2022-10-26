@@ -22,9 +22,9 @@ export function SelectMode(props: SelectModeProps) {
 }
 
 export function ModeSelection() {
-  const [mode] = useContext(ModeCtx)
+  const [selectedMode] = useContext(ModeCtx)
   return (
-    <div className={styles.options} data-mode={mode}>
+    <div className={styles.options} data-mode={selectedMode}>
       <div className={styles.bg}></div>
       <SelectMode mode="url" text="URL" />
       <SelectMode mode="origin" text="ORIGIN" />

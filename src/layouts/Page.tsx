@@ -1,32 +1,23 @@
-import { useState, Suspense, useContext } from 'react'
+import { useState, Suspense } from 'react'
 import { Loader } from '../components/Loader'
-import { ModeCtx } from '../context'
 import { Mode } from '../types'
 import styles from '../styles/Page.module.scss'
 import Card from '../components/Card'
 import { ClientOnly } from '../components/ClientOnly'
 
-function getInitialURL(mode: Mode) {
-  if (typeof window === 'undefined')
-    return mode === 'url' ? 'https://web.dev/vitals/' : 'https://web.dev'
-  const href = new URL(typeof window !== 'undefined' ? window.location.href : '')
-  const testURL = href.searchParams.get('url')
-  const defaultURL = mode === 'url' ? 'https://web.dev/vitals/' : 'https://web.dev'
-  return testURL || defaultURL
-}
-
-export function Page() {
-  const [mode] = useContext(ModeCtx)
-  const [url, setURL] = useState(() => getInitialURL(mode))
-
+export function Page(props: {
+  input: string
+  mode: Mode
+  setInput: (value: string) => void
+}) {
   return (
     <>
-      <Input onSubmit={url => setURL(url)} value={url} />
+      <Input onSubmit={props.setInput} value={props.input} />
       <ClientOnly fallback={<Loader />}>
         <Suspense fallback={<Loader />}>
           <main>
-            <Card formFactor="PHONE" url={url} />
-            <Card formFactor="DESKTOP" url={url} />
+            <Card formFactor="PHONE" url={props.input} />
+            <Card formFactor="DESKTOP" url={props.input} />
           </main>
         </Suspense>
       </ClientOnly>
