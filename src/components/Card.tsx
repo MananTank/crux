@@ -35,9 +35,11 @@ export default function Card(props: CardProps) {
         <p className={styles.error}> {data.error.message}</p>
       ) : (
         <div className={styles.metricsContainer}>
-          {labelMetricData(data.record.metrics).map(metric => (
-            <Metric metric={metric} key={metric.name} />
-          ))}
+          {labelMetricData(data.record.metrics)
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(metric => (
+              <Metric metric={metric} key={metric.name} />
+            ))}
         </div>
       )}
     </div>
