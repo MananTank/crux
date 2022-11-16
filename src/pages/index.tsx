@@ -7,66 +7,29 @@ import { ModeSelection } from '../components/ModeSelection'
 import { Header } from '../components/Header'
 import styles from '../styles/App.module.scss'
 import Head from 'next/head'
-
-const defaultURL = 'https://web.dev/vitals/'
-const defaultOrigin = 'https://web.dev'
-const defaultURLList = `https://web.dev/lcp/,https://web.dev/fid/,https://web.dev/cls/`
-
-const savedValues = {
-  url: defaultURL,
-  origin: defaultOrigin,
-  list: defaultURLList
-}
+import { listParam, originParam, urlParam } from '../utils/searchParams'
 
 export default function App() {
-  const [mode, _setMode] = useState<Mode>('url')
-  const [input, _setInput] = useState(defaultURL)
-  const modeUpdated = useRef(false)
+  const rendered = useRef(false)
+  const [currentMode, setCurrentMode] = useState<Mode>('url')
 
-  function setInput(value: string) {
-    _setInput(value)
-  }
-
+  // set initial mode
   useEffect(() => {
-    savedValues[mode] = input
-  }, [mode, input])
-
-  function setMode(value: Mode) {
-    console.log('set mode', value)
-    _setMode(value as Mode)
-    if (value === 'url') setInput(savedValues.url)
-    if (value === 'origin') setInput(savedValues.origin)
-    if (value === 'list') {
-      setInput(savedValues.list)
-    }
-  }
-
-  useEffect(() => {
-    if (!modeUpdated.current) return
-    window.history.replaceState({}, '', `?${mode}=${input}`)
-  }, [mode, input])
-
-  useEffect(() => {
-    modeUpdated.current = true
-    const url = new URL(window.location.href)
-
-    const originValue = url.searchParams.get('origin')
-    const listValue = url.searchParams.get('list')
-
-    if (originValue) {
-      setMode('origin')
-      setInput(originValue)
-    } else if (listValue) {
-      setMode('list')
-      setInput(listValue)
+    if (originParam) {
+      setCurrentMode('origin')
+    } else if (listParam) {
+      setCurrentMode('list')
     }
   }, [])
 
   useEffect(() => {
-    setTimeout(() => {
-      document.body.classList.add('hydrated')
-    }, 200)
-  })
+    if (!rendered.current) {
+      rendered.current = true
+      setTimeout(() => {
+        document.body.classList.add('hydrated')
+      }, 200)
+    }
+  }, [])
 
   return (
     <div id="root">
@@ -75,20 +38,30 @@ export default function App() {
         <meta name="description" content="Get CrUX data for any webpage" />
         <title>CrUX</title>
       </Head>
-      <ModeCtx.Provider value={[mode, setMode]}>
+      <ModeCtx.Provider value={[currentMode, setCurrentMode]}>
         <main className={styles.app}>
           <Header />
           <ModeSelection />
-          {mode === 'list' && <List input={input} setInput={setInput} />}
-          {mode === 'url' && (
-            <Page key="url" input={input} setInput={setInput} mode={mode} />
+          {currentMode === 'list' && <List initValue={listParam} />}
+          {currentMode === 'url' && (
+            <Page
+              key="url"
+              initValue={urlParam}
+              default={'https://web.dev/vitals/'}
+              dataKey="url"
+            />
           )}
-          {mode === 'origin' && (
-            <Page key="origin" input={input} setInput={setInput} mode={mode} />
+          {currentMode === 'origin' && (
+            <Page
+              key="origin"
+              initValue={originParam}
+              default={'https://web.dev'}
+              dataKey="origin"
+            />
           )}
         </main>
         <footer className={styles.footer}>
-          Copyright © 2022 <a href="https://twitter.com/MananTank_">Manan Tank</a>
+          Created by <a href="https://twitter.com/MananTank_">Manan Tank</a>
         </footer>
       </ModeCtx.Provider>
     </div>

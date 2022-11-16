@@ -4,8 +4,7 @@ import { labelMetricData } from '../utils/labelMetricData'
 import { Metric } from './Metric'
 import useSWR from 'swr'
 import { mobileIcon, desktopIcon } from '../icons'
-import { useContext } from 'react'
-import { ModeCtx } from '../context'
+import { useMode } from '../context'
 import styles from '../styles/Card.module.scss'
 
 type CardProps = {
@@ -14,7 +13,7 @@ type CardProps = {
 }
 
 export default function Card(props: CardProps) {
-  const [mode] = useContext(ModeCtx)
+  const mode = useMode()
   const { formFactor, url } = props
   const key = url + mode + formFactor
   const { data } = useSWR(key, () => getData(url, formFactor, mode), {

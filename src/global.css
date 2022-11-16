@@ -28,7 +28,7 @@ html {
   --primary-text: var(--light);
 }
 
-.dark-mode {
+body[data-theme='dark'] {
   --bg: hsl(232deg 27% 6%);
   --light: hsl(232deg 17% 14%);
   --text: #ffffff;

@@ -1,8 +1,10 @@
-import { Suspense, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Loader } from '../components/Loader'
 import styles from '../styles/List.module.scss'
 import Card from '../components/Card'
 import { ClientOnly } from '../components/ClientOnly'
+import { useCachedState } from '../hooks/useCachedState'
+import { useMode } from '../context'
 
 type TextAreaProps = {
   value: string
@@ -47,9 +49,17 @@ export function CompactList({ urls }: { urls: string[] }) {
   )
 }
 
-export function List(props: { input: string; setInput: (value: string) => void }) {
-  console.log('got input', props.input)
-  const urls = props.input
+const defaultURLList = `https://web.dev/lcp/,https://web.dev/fid/,https://web.dev/cls/`
+
+export function List({ initValue }: { initValue: string | null }) {
+  const [input, setInput] = useCachedState('list', initValue, defaultURLList)
+  const mode = useMode()
+
+  useEffect(() => {
+    window.history.replaceState({}, '', `?${mode}=${input}`)
+  }, [mode, input])
+
+  const urls = input
     .split(',')
     .map(v => v.trim())
     .filter(s => s !== '')
@@ -58,9 +68,9 @@ export function List(props: { input: string; setInput: (value: string) => void }
     <>
       <TextAreaContainer
         onEnter={value => {
-          props.setInput(value)
+          setInput(value)
         }}
-        value={props.input}
+        value={input}
       />
       <ClientOnly fallback={<Loader />}>
         <CompactList urls={urls} />

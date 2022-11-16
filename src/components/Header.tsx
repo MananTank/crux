@@ -1,29 +1,15 @@
-import { useState } from 'react'
-import { InfoIcon, githubIcon, sun, moon } from '../icons'
+import { InfoIcon, githubIcon } from '../icons'
 import styles from '../styles/Header.module.scss'
+import { ThemeSwitcher } from './ThemeSwitcher'
 
 export function Header() {
-  const [isLightTheme, setIsLightTheme] = useState(true)
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
         <h1 className={styles.crux}> CrUX </h1>
       </div>
       <div className={styles.links}>
-        <button
-          aria-label="Switch Theme"
-          className={styles.themeSwitcher}
-          onClick={() => {
-            if (isLightTheme) {
-              document.body.classList.add('dark-mode')
-            } else {
-              document.body.classList.remove('dark-mode')
-            }
-            setIsLightTheme(!isLightTheme)
-          }}
-        >
-          {isLightTheme ? sun : moon}
-        </button>
+        <ThemeSwitcher />
 
         <a
           rel="noreferrer"
