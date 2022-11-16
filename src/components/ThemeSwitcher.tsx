@@ -7,21 +7,8 @@ export function ThemeSwitcher() {
 
   // set state initial state
   useEffect(() => {
-    if (document.body.getAttribute('data-theme') === 'dark') {
+    if (document.body.dataset.theme === 'dark') {
       setIsLightTheme(false)
-    }
-  }, [])
-
-  // update theme
-  useEffect(() => {
-    document.body.setAttribute('data-theme', isLightTheme ? 'light' : 'dark')
-  }, [isLightTheme])
-
-  // listen for OS theme changes
-  useEffect(() => {
-    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
-    colorScheme.onchange = event => {
-      setIsLightTheme(!event.matches)
     }
   }, [])
 
@@ -32,6 +19,7 @@ export function ThemeSwitcher() {
       onClick={() => {
         const nextTheme = isLightTheme ? 'dark' : 'light'
         localStorage.setItem('theme', nextTheme)
+        document.body.setAttribute('data-theme', nextTheme)
         setIsLightTheme(!isLightTheme)
       }}
     >
