@@ -8,7 +8,7 @@ The Chrome User Experience Report (also known as the Chrome UX Report, or CrUX f
 
 <br/>
 
-## Check it out on: [crux.pages.dev](https://crux.pages.dev/)
+## Check it out on: [crux-data.vercel.app](https://crux-data.vercel.app)
 
 <img src='./docs/crux-dark.png'>
 
