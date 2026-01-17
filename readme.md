@@ -1,4 +1,4 @@
-# crux.page
+# CrUX
 
 Get CrUX data for any webpage, origin or list of pages with ease.
 
